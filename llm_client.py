@@ -2,81 +2,90 @@ import json
 import requests
 from typing import Dict, Any, Optional
 
+
 class LLMClient:
     def __init__(self, config_path: str = "config.json"):
         """Initialize LLM client with configuration."""
-        with open(config_path, 'r', encoding='utf-8') as f:
+        with open(config_path, "r", encoding="utf-8") as f:
             self.config = json.load(f)
-        
+
         self.provider = self.config.get("llm_provider", "deepseek")
         self.api_key = self.config.get("deepseek_api_key")
         self.base_url = self.config.get("deepseek_base_url", "https://api.deepseek.com")
         self.model_name = self.config.get("model_name", "deepseek-chat")
         self.max_tokens = self.config.get("max_tokens", 2000)
         self.temperature = self.config.get("temperature", 0.7)
-    
-    def chat_completion(self, messages: list, system_prompt: Optional[str] = None) -> str:
+
+    def chat_completion(
+        self, messages: list, system_prompt: Optional[str] = None
+    ) -> str:
         """Send chat completion request to LLM."""
         if not self.api_key or self.api_key == "YOUR_DEEPSEEK_API_KEY_HERE":
             return self._mock_response(messages, system_prompt)
-        
+
         try:
             # Prepare messages
             formatted_messages = []
             if system_prompt:
                 formatted_messages.append({"role": "system", "content": system_prompt})
-            
+
             for msg in messages:
                 formatted_messages.append(msg)
-            
+
             # Make API request
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             }
-            
+
             data = {
                 "model": self.model_name,
                 "messages": formatted_messages,
                 "max_tokens": self.max_tokens,
-                "temperature": self.temperature
+                "temperature": self.temperature,
             }
-            
+
             response = requests.post(
                 f"{self.base_url}/v1/chat/completions",
                 headers=headers,
                 json=data,
-                timeout=30
+                timeout=30,
             )
-            
+
             if response.status_code == 200:
                 result = response.json()
                 return result["choices"][0]["message"]["content"]
             else:
                 print(f"API Error: {response.status_code} - {response.text}")
                 return self._mock_response(messages, system_prompt)
-                
+
         except Exception as e:
             print(f"LLM API Error: {str(e)}")
             return self._mock_response(messages, system_prompt)
-    
-    def _mock_response(self, messages: list, system_prompt: Optional[str] = None) -> str:
+
+    def _mock_response(
+        self, messages: list, system_prompt: Optional[str] = None
+    ) -> str:
         """Provide mock response when API is not available."""
         last_message = messages[-1]["content"] if messages else ""
-        
+
         # Check if this is an enhanced recommendation request
-        if "补全" in last_message or "enhanced" in last_message.lower() or "优化" in last_message:
+        if (
+            "补全" in last_message
+            or "enhanced" in last_message.lower()
+            or "优化" in last_message
+        ):
             return self._generate_enhanced_mock_response(last_message)
         elif "推荐" in last_message or "recommend" in last_message.lower():
             return self._generate_basic_mock_response(last_message)
         else:
             return "我理解您的需求。请告诉我您更关注酒店的哪些方面，比如位置特色、交通便利性、自然环境等，我会为您提供个性化的推荐。"
-    
+
     def _generate_basic_mock_response(self, user_input: str) -> str:
         """Generate basic mock recommendation response."""
         # Analyze user preferences from input
         preferences = self._analyze_user_preferences(user_input)
-        
+
         if "山" in user_input or "mountain" in user_input.lower():
             return """基于您的需求分析，我为您推荐以下酒店：
 
@@ -95,8 +104,12 @@ class LLMClient:
    - 特色: 直接河流通道，提供钓鱼和皮划艇设备租赁
 
 这些推荐基于评论中提到的位置特色和客人反馈进行分析。"""
-        
-        elif "交通" in user_input or "business" in user_input.lower() or "商务" in user_input:
+
+        elif (
+            "交通" in user_input
+            or "business" in user_input.lower()
+            or "商务" in user_input
+        ):
             return """基于您的需求分析，我为您推荐以下酒店：
 
 **推荐列表：**
@@ -114,7 +127,7 @@ class LLMClient:
    - 特色: 步行可达多个历史景点和商业区
 
 这些推荐基于评论中提到的交通便利性和商务设施进行分析。"""
-        
+
         else:
             return """基于您的需求分析，我为您推荐以下酒店：
 
@@ -133,7 +146,7 @@ class LLMClient:
    - 特色: 登山步道，户外活动丰富
 
 这些推荐基于评论中提到的环境特色和客人反馈进行分析。"""
-    
+
     def _generate_enhanced_mock_response(self, user_input: str) -> str:
         """Generate enhanced mock recommendation response with information completion."""
         # Analyze user preferences
@@ -165,8 +178,12 @@ class LLMClient:
 - 新增了2个基于信息补全的酒店推荐（置信度均低于75%）
 - 重新排序了推荐优先级，考虑了信息不确定性
 - 补全信息提供了更多可能性，但需要实际验证"""
-        
-        elif "交通" in user_input or "business" in user_input.lower() or "商务" in user_input:
+
+        elif (
+            "交通" in user_input
+            or "business" in user_input.lower()
+            or "商务" in user_input
+        ):
             return """**🔍 信息补全分析结果：**
 
 基于地理位置和相似酒店的信息，我对缺失信息进行了推测：
@@ -194,7 +211,7 @@ class LLMClient:
 - Historic Town Square Inn 基于推测的交通信息排名提升（置信度63%）
 - 过滤掉了交通可能不便的偏远酒店（置信度78%）
 - 补全信息提供了更多参考，但需要实际验证准确性"""
-        
+
         else:
             return """**🔍 信息补全分析结果：**
 
@@ -223,14 +240,16 @@ class LLMClient:
 - 基于推测信息重新评估了酒店服务质量（置信度均低于70%）
 - Historic Town Square Inn 因潜在文化特色排名提升
 - 补全信息提供了服务升级的可能性，但需要实际确认"""
-    
+
     def _analyze_user_preferences(self, user_input: str) -> dict:
         """Analyze user preferences from input text."""
         preferences = {
             "mountain": "山" in user_input or "mountain" in user_input.lower(),
-            "business": "交通" in user_input or "business" in user_input.lower() or "商务" in user_input,
+            "business": "交通" in user_input
+            or "business" in user_input.lower()
+            or "商务" in user_input,
             "quiet": "安静" in user_input or "quiet" in user_input.lower(),
             "beach": "海" in user_input or "beach" in user_input.lower(),
-            "culture": "文化" in user_input or "culture" in user_input.lower()
+            "culture": "文化" in user_input or "culture" in user_input.lower(),
         }
         return preferences

@@ -223,10 +223,8 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
 
 else:
     # Main content area (original layout)
-    col1, col2 = st.columns([1, 1])
 
-    with col1:
-        st.header("🎯 用户需求输入")
+    st.header("🎯 用户需求输入")
 
     # User preferences input
     user_preferences = st.text_area(
@@ -249,44 +247,41 @@ else:
         "我需要靠近机场的酒店，有班车服务，适合转机",
     ]
 
-    selected_example = st.selectbox(
-        "选择示例需求（可选）：", [""] + example_preferences
-    )
+    selected_example = st.selectbox("选择示例需求（可选）：", example_preferences)
 
     if selected_example and st.button("使用示例需求"):
         st.session_state.user_preferences = selected_example
         st.rerun()
 
-    with col2:
-        st.header("🔍 推荐结果")
+    st.header("🔍 推荐结果")
 
-        # First recommendation button
-        if st.button("🚀 获取基础推荐", type="primary", use_container_width=True):
-            if not user_preferences.strip():
-                st.error("请先输入您的需求偏好！")
-            else:
-                with st.spinner("正在分析您的需求并生成推荐..."):
-                    try:
-                        basic_rec = st.session_state.recommendation_engine.get_basic_recommendations(
-                            user_preferences
-                        )
-                        st.session_state.basic_recommendations = basic_rec
-                        st.success("基础推荐已生成！")
-                    except Exception as e:
-                        st.error(f"生成推荐时出错: {str(e)}")
+    # First recommendation button
+    if st.button("🚀 获取基础推荐", type="primary", use_container_width=True):
+        if not user_preferences.strip():
+            st.error("请先输入您的需求偏好！")
+        else:
+            with st.spinner("正在分析您的需求并生成推荐..."):
+                try:
+                    basic_rec = st.session_state.recommendation_engine.get_basic_recommendations(
+                        user_preferences
+                    )
+                    st.session_state.basic_recommendations = basic_rec
+                    st.success("基础推荐已生成！")
+                except Exception as e:
+                    st.error(f"生成推荐时出错: {str(e)}")
 
-        # Second recommendation button (only show if basic recommendations exist)
-        if st.session_state.basic_recommendations:
-            if st.button("⭐ 获取增强推荐", type="secondary", use_container_width=True):
-                with st.spinner("正在补全酒店信息并优化推荐..."):
-                    try:
-                        enhanced_rec = st.session_state.recommendation_engine.get_enhanced_recommendations(
-                            user_preferences, st.session_state.basic_recommendations
-                        )
-                        st.session_state.enhanced_recommendations = enhanced_rec
-                        st.success("增强推荐已生成！")
-                    except Exception as e:
-                        st.error(f"生成增强推荐时出错: {str(e)}")
+    # Second recommendation button (only show if basic recommendations exist)
+    if st.session_state.basic_recommendations:
+        if st.button("⭐ 获取增强推荐", type="secondary", use_container_width=True):
+            with st.spinner("正在补全酒店信息并优化推荐..."):
+                try:
+                    enhanced_rec = st.session_state.recommendation_engine.get_enhanced_recommendations(
+                        user_preferences, st.session_state.basic_recommendations
+                    )
+                    st.session_state.enhanced_recommendations = enhanced_rec
+                    st.success("增强推荐已生成！")
+                except Exception as e:
+                    st.error(f"生成增强推荐时出错: {str(e)}")
 
     # Display recommendations
     st.markdown("---")
@@ -306,32 +301,15 @@ else:
             tab_names.append("⭐ 增强推荐")
 
         if len(tab_names) > 1:
-            tab1, tab2 = st.tabs(tab_names)
+            col1, col2 = st.columns(2)
 
-            with tab1:
+            with col1:
                 st.markdown("### 基于评论分析的基础推荐")
                 st.markdown(st.session_state.basic_recommendations)
 
-            with tab2:
+            with col2:
                 st.markdown("### 基于信息补全的增强推荐")
                 st.markdown(st.session_state.enhanced_recommendations)
-
-                # Show information completion details
-                with st.expander("查看信息补全详情"):
-                    try:
-                        completed_info = (
-                            st.session_state.recommendation_engine._complete_missing_information()
-                        )
-                        for hotel_id, info in completed_info.items():
-                            if info["inferred_features"]:
-                                st.write(f"**{info['name']}**:")
-                                for feature in info["inferred_features"]:
-                                    confidence = info["confidence_scores"].get(
-                                        feature, 0
-                                    )
-                                    st.write(f"  • {feature}: {confidence}% 置信度")
-                    except Exception as e:
-                        st.error(f"无法显示补全详情: {str(e)}")
 
         elif st.session_state.basic_recommendations:
             st.markdown("### 📋 基础推荐结果")
