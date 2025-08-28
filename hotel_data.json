@@ -1,0 +1,369 @@
+{
+  "hotels": [
+    {
+      "id": "hotel_001",
+      "name": "Mountain View Resort",
+      "address": "123 Alpine Drive, Mountain Valley, CO 80424",
+      "coordinates": {"lat": 39.6403, "lng": -106.3781},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "parking", "pool", "spa"],
+        "price_range": "$$$$",
+        "near_mountain": true
+      },
+      "reviews": [
+        {"user": "TravelLover2023", "rating": 5, "text": "Amazing mountain views from every room! The hotel is literally at the foot of the mountain. Perfect for hiking enthusiasts. The shuttle service to the ski slopes is very convenient."},
+        {"user": "FamilyVacationer", "rating": 4, "text": "Great location near the mountain trails. Kids loved the pool. The restaurant has excellent local cuisine. A bit pricey but worth it for the scenery."},
+        {"user": "BusinessTraveler", "rating": 3, "text": "Beautiful mountain setting but WiFi was spotty in some areas. The conference room facilities are adequate. Transportation to downtown takes about 30 minutes."},
+        {"user": "NatureLover88", "rating": 5, "text": "Woke up to breathtaking mountain sunrise every morning. The hiking trails start right from the hotel property. Staff is very knowledgeable about local outdoor activities."},
+        {"user": "WeekendWarrior", "rating": 4, "text": "Perfect base for mountain adventures. The concierge helped arrange guided hiking tours. The spa treatments after a long day of hiking were heavenly."},
+        {"user": "CityEscapee", "rating": 5, "text": "Finally found peace away from city noise. The mountain air is so fresh and clean. The hotel provides mountain bikes for guests. Highly recommend for nature lovers."},
+        {"user": "AdventureSeeker", "rating": 4, "text": "Great mountain location with easy access to multiple trails. The gear rental service is convenient. Restaurant prices are a bit high but the mountain view dining is worth it."},
+        {"user": "RelaxationQueen", "rating": 5, "text": "The mountain backdrop creates such a serene atmosphere. The outdoor hot tub with mountain views is incredible. Perfect place to disconnect and recharge."},
+        {"user": "PhotographyEnthusiast", "rating": 5, "text": "Photographer's paradise! The mountain landscapes are stunning at every hour. The hotel staff even recommended the best spots for sunrise and sunset shots."},
+        {"user": "FitnessGuru", "rating": 4, "text": "Excellent for active travelers. Mountain biking trails nearby, rock climbing opportunities, and the hotel gym has mountain views too. Very motivating!"}
+      ]
+    },
+    {
+      "id": "hotel_002", 
+      "name": "Riverside Inn",
+      "address": "456 River Road, Riverside, CA 92501",
+      "coordinates": {"lat": 33.9533, "lng": -117.3962},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "parking", "restaurant"],
+        "price_range": "$$",
+        "near_river": true
+      },
+      "reviews": [
+        {"user": "RiverRafter", "rating": 5, "text": "Perfect location right by the river! You can hear the gentle flowing water from the rooms. Great for kayaking and fishing. The river access is just steps away."},
+        {"user": "PeacefulTraveler", "rating": 4, "text": "The sound of the river is so relaxing. Fell asleep to the gentle water sounds every night. The riverside walking path is beautiful for morning jogs."},
+        {"user": "FishingDad", "rating": 5, "text": "Angler's dream! The river right outside has excellent trout fishing. Hotel provides fishing gear rental. The staff knows all the best fishing spots."},
+        {"user": "RomanticCouple", "rating": 4, "text": "The riverside dinner on the patio was magical. Watching the sunset reflect on the water while dining was unforgettable. Very romantic setting."},
+        {"user": "KayakEnthusiast", "rating": 5, "text": "Direct river access made our kayaking trip so convenient. The hotel even has a small dock for launching. River conditions were perfect during our stay."},
+        {"user": "NatureWalker", "rating": 4, "text": "Beautiful riverside location with great walking trails along the water. Saw lots of wildlife including herons and deer coming to drink. Very peaceful."},
+        {"user": "StressedExecutive", "rating": 5, "text": "The river location is incredibly therapeutic. Just sitting by the water helped me unwind completely. The sound of flowing water is better than any meditation app."},
+        {"user": "BirdWatcher", "rating": 4, "text": "Amazing bird watching opportunities along the river. Saw kingfishers, eagles, and many waterfowl. The hotel provides binoculars for guests."},
+        {"user": "WaterSportsLover", "rating": 5, "text": "River activities galore! Tubing, rafting, and swimming all possible right from the hotel. The water is clean and refreshing. Perfect summer destination."},
+        {"user": "QuietSeeker", "rating": 4, "text": "Found the tranquility I was looking for. The river creates a natural white noise that's very soothing. Great place to read a book by the water."}
+      ]
+    },
+    {
+      "id": "hotel_003",
+      "name": "Downtown Business Hotel",
+      "address": "789 Main Street, Metro City, NY 10001", 
+      "coordinates": {"lat": 40.7589, "lng": -73.9851},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "business_center", "gym", "concierge"],
+        "price_range": "$$$",
+        "downtown": true
+      },
+      "reviews": [
+        {"user": "CorporateExec", "rating": 5, "text": "Excellent location in the heart of downtown. Walking distance to all major business districts. The subway station is literally across the street. Perfect for business meetings."},
+        {"user": "ConferenceAttendee", "rating": 4, "text": "Great central location with easy access to the convention center. Plenty of restaurants and shops within walking distance. The business center is well-equipped."},
+        {"user": "UrbanExplorer", "rating": 5, "text": "Love the downtown energy! Everything is accessible on foot - theaters, museums, shopping. The hotel concierge has great recommendations for city attractions."},
+        {"user": "PublicTransitUser", "rating": 5, "text": "Transportation couldn't be better! Three subway lines within two blocks. Bus stops right outside. No need for a car when staying here."},
+        {"user": "ShoppingSister", "rating": 4, "text": "Shopper's paradise! Major department stores and boutiques all within walking distance. The hotel is right in the middle of the shopping district."},
+        {"user": "TheaterGoer", "rating": 5, "text": "Perfect for Broadway shows! Most theaters are within a 10-minute walk. The hotel staff helped secure last-minute tickets. Great restaurant recommendations too."},
+        {"user": "BusinessNomad", "rating": 4, "text": "Ideal for business travelers. Close to financial district, excellent WiFi, and the business center is available 24/7. Meeting rooms are professional."},
+        {"user": "CityFoodie", "rating": 5, "text": "Food lover's dream location! Incredible restaurants of every cuisine within walking distance. The hotel concierge knows all the hidden gems."},
+        {"user": "MuseumHopper", "rating": 4, "text": "Cultural attractions everywhere! Multiple world-class museums within walking distance. The hotel provides maps and discount tickets for major attractions."},
+        {"user": "NightlifeSeeker", "rating": 5, "text": "The downtown nightlife is amazing! Bars, clubs, and live music venues all nearby. Safe to walk around even late at night. Great energy!"}
+      ]
+    },
+    {
+      "id": "hotel_004",
+      "name": "Lakeside Lodge",
+      "address": "321 Lakeshore Drive, Crystal Lake, MN 55014",
+      "coordinates": {"lat": 45.0781, "lng": -93.2650},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "parking", "boat_rental"],
+        "price_range": "$$",
+        "near_lake": true
+      },
+      "reviews": [
+        {"user": "LakeLifeLover", "rating": 5, "text": "Stunning lake views from our room! The lake is crystal clear and perfect for swimming. Boat rental right at the hotel dock made our vacation perfect."},
+        {"user": "FishingFamily", "rating": 4, "text": "Great fishing right from the hotel dock! The lake has excellent bass and walleye. Kids loved swimming in the clean, clear water. Very family-friendly."},
+        {"user": "WaterSkiEnthusiast", "rating": 5, "text": "Perfect lake for water sports! Rented a boat from the hotel and spent all day water skiing and wakeboarding. The lake is large enough with minimal boat traffic."},
+        {"user": "SunsetWatcher", "rating": 4, "text": "The sunsets over the lake are absolutely breathtaking! We spent every evening on the hotel's lakeside deck watching the sky change colors. So peaceful."},
+        {"user": "SwimmingCoach", "rating": 5, "text": "The lake water is incredibly clean and clear - perfect for swimming! The hotel has a nice sandy beach area. Water temperature was perfect in summer."},
+        {"user": "CanoeAdventurer", "rating": 4, "text": "Explored the entire lake by canoe! The hotel provides free canoe rentals. Discovered hidden coves and saw lots of wildlife. The lake is pristine."},
+        {"user": "RelaxationSeeker", "rating": 5, "text": "Nothing beats the tranquility of lake life. Spent hours just floating on the calm water. The gentle lapping of waves is so soothing. Perfect getaway."},
+        {"user": "NaturePhotographer", "rating": 4, "text": "The lake provides amazing photo opportunities! Captured beautiful reflections, wildlife, and stunning sunrise shots. The hotel staff knows the best photo spots."},
+        {"user": "KayakGuide", "rating": 5, "text": "Excellent lake for kayaking! Multiple bays and inlets to explore. The water is calm and clear. Hotel provides quality kayaks and safety equipment."},
+        {"user": "LakeHouseRenter", "rating": 4, "text": "Feels like staying at a private lake house! The lake access is exclusive to hotel guests. Perfect for families wanting a safe, clean swimming environment."}
+      ]
+    },
+    {
+      "id": "hotel_005",
+      "name": "Airport Express Hotel",
+      "address": "555 Airport Boulevard, Hub City, TX 75261",
+      "coordinates": {"lat": 32.8998, "lng": -97.0403},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "shuttle", "24hr_front_desk"],
+        "price_range": "$",
+        "near_airport": true
+      },
+      "reviews": [
+        {"user": "FrequentFlyer", "rating": 4, "text": "Super convenient for early flights! The airport shuttle runs every 15 minutes and takes only 5 minutes to reach the terminal. Perfect for business travelers."},
+        {"user": "RedEyeTraveler", "rating": 5, "text": "Lifesaver for late night arrivals! The shuttle service runs 24/7 and the staff is always ready to help. Much better than expensive airport hotels."},
+        {"user": "BudgetTraveler", "rating": 4, "text": "Great value for money! Clean rooms, reliable shuttle service, and significantly cheaper than staying at the airport. The shuttle is always on time."},
+        {"user": "BusinessCommuter", "rating": 5, "text": "Perfect for business trips! Quick access to the airport, good WiFi for work, and the shuttle timing is very reliable. Never missed a flight staying here."},
+        {"user": "FamilyVacationer", "rating": 3, "text": "Convenient location near the airport. The shuttle accommodates luggage well. Kids were excited about watching planes take off from the hotel windows."},
+        {"user": "InternationalTraveler", "rating": 4, "text": "Excellent for international flights! The shuttle service helped us get to the airport with plenty of time. Staff speaks multiple languages which was helpful."},
+        {"user": "LayoverGuest", "rating": 5, "text": "Perfect for long layovers! Much more comfortable than sleeping in the airport. The shuttle timing worked perfectly with our connecting flight schedule."},
+        {"user": "EarlyBirdTraveler", "rating": 4, "text": "The 4 AM shuttle service saved our vacation! Hotel staff was awake and helpful even at that early hour. Coffee was ready in the lobby too."},
+        {"user": "GroupTraveler", "rating": 4, "text": "Great for group travel! The shuttle can accommodate large groups with luggage. Hotel helped coordinate our departure times. Very organized service."},
+        {"user": "StressedFlyer", "rating": 5, "text": "Reduced my travel anxiety significantly! Knowing the airport is just minutes away let me sleep better. The reliable shuttle service is worth every penny."}
+      ]
+    },
+    {
+      "id": "hotel_006",
+      "name": "Historic Town Square Inn",
+      "address": "888 Heritage Street, Old Town, VA 22101",
+      "coordinates": {"lat": 38.8816, "lng": -77.1025},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "parking", "historic_charm"],
+        "price_range": "$$$",
+        "historic": true
+      },
+      "reviews": [
+        {"user": "HistoryBuff", "rating": 5, "text": "Staying in this historic building was like traveling back in time! The architecture is beautifully preserved. Walking tours of the historic district start right from the hotel."},
+        {"user": "ArchitectureLover", "rating": 4, "text": "The historic details are stunning! Original hardwood floors, period furniture, and beautiful moldings. The hotel maintains its historic character while providing modern amenities."},
+        {"user": "CulturalTourist", "rating": 5, "text": "Perfect location for exploring local history! Multiple historic sites within walking distance. The hotel staff is very knowledgeable about local historical significance."},
+        {"user": "AntiqueEnthusiast", "rating": 4, "text": "Love the authentic historic atmosphere! The antique furnishings and period decor create such a unique experience. Feels like staying in a museum."},
+        {"user": "GhostTourGuide", "rating": 5, "text": "The historic charm is incredible! The building has so many stories to tell. Perfect starting point for ghost tours and historic walking tours of the area."},
+        {"user": "WeddingPlanner", "rating": 4, "text": "Gorgeous historic venue! The ballroom with original chandeliers is perfect for weddings. The historic setting creates such romantic photo opportunities."},
+        {"user": "LocalHistorian", "rating": 5, "text": "This building is a true historic gem! Built in 1847 and carefully restored. The hotel preserves the local heritage beautifully. A must-stay for history lovers."},
+        {"user": "VintageStyle", "rating": 4, "text": "The historic ambiance is unmatched! Every room tells a story. The period furniture and historic artwork create such an authentic experience."},
+        {"user": "EducationalTraveler", "rating": 5, "text": "Perfect for educational trips! The hotel itself is a learning experience. Staff provides historical context and recommendations for other historic sites nearby."},
+        {"user": "CharmSeeker", "rating": 4, "text": "The old-world charm is exactly what I was looking for! Modern comfort in a historic setting. The character and atmosphere you can't find in modern hotels."}
+      ]
+    },
+    {
+      "id": "hotel_007",
+      "name": "Beachfront Paradise Resort",
+      "address": "777 Ocean Drive, Sunny Beach, FL 33139",
+      "coordinates": {"lat": 25.7907, "lng": -80.1300},
+      "tags": {
+        "star_rating": 5,
+        "amenities": ["wifi", "pool", "spa", "beach_access"],
+        "price_range": "$$$$$",
+        "beachfront": true
+      },
+      "reviews": [
+        {"user": "BeachLover2024", "rating": 5, "text": "Direct beach access is amazing! Step out of the hotel and you're on pristine white sand. The ocean views from our room were spectacular. Perfect beach vacation!"},
+        {"user": "SurferDude", "rating": 5, "text": "The beach right outside has great waves for surfing! Hotel provides surfboard rentals. The beach is clean and not too crowded. Paradise for water sports enthusiasts."},
+        {"user": "SunWorshipper", "rating": 4, "text": "Perfect for beach relaxation! The hotel provides beach chairs and umbrellas. Spent every day lounging on the beautiful sand. The beach bar service is excellent."},
+        {"user": "FamilyBeachTrip", "rating": 5, "text": "Kids had a blast on the beach! Safe swimming area right in front of the hotel. The beach activities coordinator organized fun games for children. Very family-friendly."},
+        {"user": "OceanSwimmer", "rating": 5, "text": "The ocean water is crystal clear and perfect for swimming! No need to travel anywhere - the beach is right there. Early morning swims watching the sunrise were magical."},
+        {"user": "BeachWalker", "rating": 4, "text": "Miles of beautiful beach for walking! The hotel is positioned on one of the best stretches of coastline. Perfect for romantic sunset walks along the shore."},
+        {"user": "ShellCollector", "rating": 5, "text": "The beach is a treasure trove for shell collecting! Found amazing specimens right outside the hotel. The staff knows the best times for shell hunting."},
+        {"user": "BeachPhotographer", "rating": 5, "text": "Photographer's dream location! The beach provides endless opportunities for stunning shots. Sunrise and sunset photos from the hotel balcony are incredible."},
+        {"user": "WaterSportsFamily", "rating": 4, "text": "Every water sport imaginable available right on the beach! Jet skiing, parasailing, snorkeling - all accessible from the hotel. The beach concierge arranges everything."},
+        {"user": "TropicalEscape", "rating": 5, "text": "True tropical paradise! The palm trees, white sand, and turquoise water create the perfect beach setting. Exactly what I dreamed of for my vacation."}
+      ]
+    },
+    {
+      "id": "hotel_008",
+      "name": "Countryside Manor",
+      "address": "999 Rural Route 1, Green Valley, VT 05401",
+      "coordinates": {"lat": 44.4759, "lng": -73.2121},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "parking", "garden"],
+        "price_range": "$$",
+        "countryside": true
+      },
+      "reviews": [
+        {"user": "CityEscapee", "rating": 5, "text": "Perfect escape from city life! Surrounded by rolling hills and farmland. The peace and quiet is exactly what I needed. Fresh country air and beautiful scenery."},
+        {"user": "NatureWalker", "rating": 4, "text": "Beautiful countryside setting with great hiking trails nearby. The hotel grounds have lovely gardens and walking paths. Perfect for connecting with nature."},
+        {"user": "FarmLifeLover", "rating": 5, "text": "Love the rural atmosphere! You can see working farms from the hotel windows. The staff arranged a visit to a local dairy farm. Authentic countryside experience."},
+        {"user": "StressRelief", "rating": 4, "text": "The countryside tranquility is incredibly therapeutic. No city noise, just birds singing and gentle breezes. Perfect place to unwind and recharge."},
+        {"user": "GardenEnthusiast", "rating": 5, "text": "The hotel gardens are absolutely beautiful! Well-maintained flower beds and vegetable gardens. The staff gave me a tour and shared gardening tips."},
+        {"user": "StarGazer", "rating": 5, "text": "Amazing night sky views! No light pollution means incredible stargazing opportunities. The hotel provides blankets for outdoor star watching sessions."},
+        {"user": "QuietSeeker", "rating": 4, "text": "Found the peace I was looking for! The countryside setting is so quiet and serene. Perfect for reading, meditation, or just enjoying the silence."},
+        {"user": "LocalFoodLover", "rating": 4, "text": "Great access to farm-to-table dining! Local farms provide fresh ingredients to nearby restaurants. The hotel can arrange visits to farmers markets."},
+        {"user": "WildlifeWatcher", "rating": 5, "text": "Saw so much wildlife! Deer, rabbits, and various birds right on the hotel property. The countryside setting attracts lots of interesting animals."},
+        {"user": "DigitalDetox", "rating": 5, "text": "Perfect for disconnecting from technology! The countryside setting encourages you to put away devices and enjoy nature. Very refreshing experience."}
+      ]
+    },
+    {
+      "id": "hotel_009",
+      "name": "Desert Oasis Resort",
+      "address": "1234 Desert Road, Phoenix, AZ 85001",
+      "coordinates": {"lat": 33.4484, "lng": -112.0740},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "pool", "spa", "golf"],
+        "price_range": "$$$$",
+        "desert": true
+      },
+      "reviews": [
+        {"user": "DesertExplorer", "rating": 5, "text": "Amazing desert landscape views! The resort is surrounded by beautiful cacti and desert mountains. Perfect for experiencing the unique desert ecosystem."},
+        {"user": "GolfEnthusiast", "rating": 4, "text": "Excellent golf course with desert views! The course is challenging and well-maintained. The desert setting makes it a unique golfing experience."},
+        {"user": "SpaLover", "rating": 5, "text": "The desert spa treatments are incredible! They use local desert plants and minerals. Very relaxing after a day exploring the desert landscape."},
+        {"user": "SunsetChaser", "rating": 4, "text": "Desert sunsets from the resort are breathtaking! The colors over the desert landscape are amazing. Perfect spot for photography enthusiasts."},
+        {"user": "HikerAdventurer", "rating": 5, "text": "Great base for desert hiking! Many trails nearby with stunning desert scenery. The resort provides maps and hiking gear recommendations."},
+        {"user": "StarGazer", "rating": 5, "text": "Incredible night sky views! The desert location means no light pollution. Perfect for stargazing and astronomy enthusiasts."},
+        {"user": "PoolRelaxer", "rating": 4, "text": "The pool area is an oasis in the desert! Beautiful landscaping with desert plants. Very refreshing after exploring the hot desert."},
+        {"user": "CulturalTourist", "rating": 4, "text": "Great access to Native American cultural sites! The desert region has rich history. Hotel staff provides cultural tour recommendations."},
+        {"user": "PhotographyPro", "rating": 5, "text": "Photographer's paradise! The desert landscapes, cacti, and rock formations provide endless photo opportunities. Sunrise and sunset shots are spectacular."},
+        {"user": "AdventureCouples", "rating": 4, "text": "Perfect for adventurous couples! Desert activities like hot air ballooning and ATV tours. Romantic desert dinners under the stars."}
+      ]
+    },
+    {
+      "id": "hotel_010",
+      "name": "Forest Retreat Lodge",
+      "address": "567 Pine Forest Trail, Asheville, NC 28801",
+      "coordinates": {"lat": 35.5951, "lng": -82.5515},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "fireplace", "hiking_trails"],
+        "price_range": "$$",
+        "forest": true
+      },
+      "reviews": [
+        {"user": "ForestLover", "rating": 5, "text": "Completely surrounded by beautiful forest! The lodge is nestled among tall pine trees. Perfect for forest bathing and connecting with nature."},
+        {"user": "HikingFamily", "rating": 4, "text": "Amazing hiking trails right from the lodge! Multiple forest paths of different difficulty levels. Kids loved exploring the forest wildlife."},
+        {"user": "BirdWatcher", "rating": 5, "text": "Incredible bird watching in the forest! Saw many species including woodpeckers and owls. The forest canopy attracts diverse wildlife."},
+        {"user": "CabinFever", "rating": 4, "text": "Authentic forest cabin experience! The lodge maintains that rustic forest feel while providing modern comfort. Fireplace was perfect for forest evenings."},
+        {"user": "NatureSounds", "rating": 5, "text": "The forest sounds are so peaceful! Birds singing, leaves rustling, and forest streams nearby. Perfect for meditation and relaxation."},
+        {"user": "MushroomHunter", "rating": 4, "text": "Great for foraging enthusiasts! The forest has many edible mushrooms and plants. Lodge provides guided forest foraging tours."},
+        {"user": "TreeHugger", "rating": 5, "text": "Being surrounded by ancient forest trees is magical! Some trees are hundreds of years old. The forest energy is very healing."},
+        {"user": "CampfireStories", "rating": 4, "text": "Perfect forest camping atmosphere! Evening campfires surrounded by forest. Great for storytelling and forest night sounds."},
+        {"user": "ForestPhotographer", "rating": 5, "text": "Forest photography opportunities are endless! Dappled sunlight through trees, forest streams, and wildlife. Every season offers different forest beauty."},
+        {"user": "EcoTourist", "rating": 4, "text": "Excellent eco-friendly forest lodge! They practice sustainable forestry and forest conservation. Educational forest ecology programs available."}
+      ]
+    },
+    {
+      "id": "hotel_011",
+      "name": "Urban Loft Hotel",
+      "address": "890 Metropolitan Ave, Brooklyn, NY 11211",
+      "coordinates": {"lat": 40.7128, "lng": -73.9540},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "rooftop_bar", "gym", "coworking"],
+        "price_range": "$$$",
+        "urban": true,
+        "trendy": true
+      },
+      "reviews": [
+        {"user": "UrbanNomad", "rating": 5, "text": "Perfect urban loft experience! Industrial design with modern amenities. Great for young professionals who love city life and urban culture."},
+        {"user": "RooftopLover", "rating": 4, "text": "Amazing rooftop bar with city skyline views! Perfect for urban nightlife and socializing. The urban atmosphere is very energetic."},
+        {"user": "CoworkingDigital", "rating": 5, "text": "Excellent coworking spaces! Perfect for digital nomads and urban professionals. Fast WiFi and modern urban work environment."},
+        {"user": "ArtDistrict", "rating": 4, "text": "Located in a vibrant urban art district! Galleries, street art, and creative spaces everywhere. Perfect for urban culture enthusiasts."},
+        {"user": "FoodieUrban", "rating": 5, "text": "Incredible urban food scene nearby! Food trucks, trendy restaurants, and urban markets. Perfect for exploring city culinary culture."},
+        {"user": "NightlifeSeeker", "rating": 4, "text": "Great access to urban nightlife! Clubs, bars, and live music venues within walking distance. The city never sleeps here!"},
+        {"user": "UrbanExplorer", "rating": 5, "text": "Perfect base for urban exploration! Easy access to different city neighborhoods. Great public transportation connections."},
+        {"user": "TrendyTraveler", "rating": 4, "text": "Very trendy and Instagram-worthy! Modern urban design and hip atmosphere. Perfect for social media content creation."},
+        {"user": "CityRunner", "rating": 4, "text": "Great for urban fitness enthusiasts! Running paths along the waterfront and city parks nearby. The gym has modern urban views."},
+        {"user": "UrbanProfessional", "rating": 5, "text": "Ideal for business in the city! Close to financial district and business centers. Modern urban amenities for professional travelers."}
+      ]
+    },
+    {
+      "id": "hotel_012",
+      "name": "Vineyard Estate Inn",
+      "address": "456 Wine Country Road, Napa, CA 94558",
+      "coordinates": {"lat": 38.2975, "lng": -122.2869},
+      "tags": {
+        "star_rating": 5,
+        "amenities": ["wifi", "wine_tasting", "spa", "restaurant"],
+        "price_range": "$$$$$",
+        "vineyard": true,
+        "luxury": true
+      },
+      "reviews": [
+        {"user": "WineConnoisseur", "rating": 5, "text": "Exceptional vineyard experience! Surrounded by beautiful grapevines and rolling hills. The wine tasting sessions are world-class."},
+        {"user": "RomanticGetaway", "rating": 5, "text": "Perfect romantic vineyard setting! Sunset dinners among the vines are magical. The vineyard views from our room were breathtaking."},
+        {"user": "CulinaryExplorer", "rating": 4, "text": "Outstanding farm-to-table dining! Fresh ingredients from the vineyard and local farms. The wine pairings are expertly crafted."},
+        {"user": "LuxuryTraveler", "rating": 5, "text": "Luxury vineyard accommodation at its finest! Elegant rooms with vineyard views. The spa treatments using grape extracts are amazing."},
+        {"user": "WineEducator", "rating": 5, "text": "Educational vineyard tours are fantastic! Learned so much about winemaking process. The vineyard staff is very knowledgeable."},
+        {"user": "HarvestSeason", "rating": 4, "text": "Visited during harvest season - incredible experience! Participated in grape picking and wine making. The vineyard comes alive during harvest."},
+        {"user": "VineyardWedding", "rating": 5, "text": "Perfect vineyard wedding venue! The ceremony among the vines was dreamlike. Stunning vineyard backdrop for photos."},
+        {"user": "WineClubMember", "rating": 5, "text": "Exclusive wine club experiences! Access to limited vineyard releases and private tastings. The vineyard hospitality is exceptional."},
+        {"user": "CountrysideEscape", "rating": 4, "text": "Beautiful countryside vineyard setting! Peaceful and relaxing atmosphere. Perfect escape from city life among the vines."},
+        {"user": "GourmetFoodie", "rating": 5, "text": "Gourmet dining with vineyard views! The chef creates amazing dishes that complement the wines. Vineyard-to-table experience is unique."}
+      ]
+    },
+    {
+      "id": "hotel_013",
+      "name": "Ski Lodge Alpine",
+      "address": "789 Mountain Peak Drive, Aspen, CO 81611",
+      "coordinates": {"lat": 39.1911, "lng": -106.8175},
+      "tags": {
+        "star_rating": 4,
+        "amenities": ["wifi", "ski_rental", "fireplace", "hot_tub"],
+        "price_range": "$$$$",
+        "ski": true,
+        "mountain": true
+      },
+      "reviews": [
+        {"user": "SkiEnthusiast", "rating": 5, "text": "Perfect ski-in, ski-out location! Direct access to the slopes from the lodge. The ski rental service is convenient and equipment is top quality."},
+        {"user": "ApresSkiLover", "rating": 4, "text": "Great après-ski atmosphere! The fireplace lounge is perfect after a day on the slopes. Hot chocolate and mountain views are unbeatable."},
+        {"user": "MountainFamily", "rating": 5, "text": "Excellent family ski destination! Ski lessons for kids available right at the lodge. The mountain setting is perfect for family bonding."},
+        {"user": "SnowboardPro", "rating": 4, "text": "Awesome snowboarding access! The mountain has great terrain for all levels. Lodge provides detailed mountain trail maps and conditions."},
+        {"user": "HotTubRelaxer", "rating": 5, "text": "The outdoor hot tub with mountain views is amazing! Perfect for relaxing sore muscles after skiing. Mountain stars at night are incredible."},
+        {"user": "WinterWonderland", "rating": 4, "text": "Beautiful winter mountain scenery! The lodge is like a cozy cabin in a winter wonderland. Mountain wildlife sightings are common."},
+        {"user": "SkiInstructor", "rating": 5, "text": "Professional ski instruction available! The mountain has excellent learning slopes. Lodge staff includes certified mountain guides."},
+        {"user": "MountainPhotographer", "rating": 4, "text": "Stunning mountain photography opportunities! Snow-covered peaks and alpine scenery. Sunrise over the mountains is spectacular."},
+        {"user": "AlpineAdventurer", "rating": 5, "text": "Great base for mountain adventures! Summer hiking, winter skiing, and year-round mountain activities. The alpine environment is pristine."},
+        {"user": "CozyRetreat", "rating": 4, "text": "Cozy mountain lodge atmosphere! Rustic charm with modern amenities. Perfect for romantic mountain getaways and peaceful retreats."}
+      ]
+    },
+    {
+      "id": "hotel_014",
+      "name": "Coastal Cliff Resort",
+      "address": "321 Ocean Cliff Road, Big Sur, CA 93920",
+      "coordinates": {"lat": 36.2704, "lng": -121.8081},
+      "tags": {
+        "star_rating": 5,
+        "amenities": ["wifi", "spa", "restaurant", "hiking_trails"],
+        "price_range": "$$$$$",
+        "coastal": true,
+        "cliffs": true
+      },
+      "reviews": [
+        {"user": "CliffWalker", "rating": 5, "text": "Breathtaking cliff-top location! The resort sits dramatically on coastal cliffs with stunning ocean views. Cliff-side walking paths are incredible."},
+        {"user": "OceanViewer", "rating": 5, "text": "Unparalleled ocean views from the cliffs! Every room has panoramic coastal vistas. Watching whales from the cliff-top restaurant is amazing."},
+        {"user": "SunsetRomantic", "rating": 4, "text": "Most romantic cliff-side sunsets! The coastal cliffs provide the perfect vantage point. Dinner on the cliff terrace is unforgettable."},
+        {"user": "HikingAdventurer", "rating": 5, "text": "Excellent cliff-top hiking trails! The coastal path along the cliffs is spectacular. Wildlife viewing opportunities are abundant."},
+        {"user": "NaturePhotographer", "rating": 5, "text": "Photographer's dream location! The dramatic cliffs and crashing waves create stunning compositions. Coastal fog effects are magical."},
+        {"user": "SpaSerenity", "rating": 4, "text": "Cliff-top spa treatments are heavenly! The sound of waves crashing below while getting a massage is incredibly relaxing. Ocean breeze therapy."},
+        {"user": "WildlifeWatcher", "rating": 5, "text": "Amazing wildlife viewing from the cliffs! Sea otters, seals, and migrating whales visible from the resort. Coastal ecosystem is pristine."},
+        {"user": "AdventureCouples", "rating": 4, "text": "Perfect for adventurous couples! Cliff rappelling and coastal kayaking available. The dramatic cliff setting is very romantic."},
+        {"user": "LuxurySeeker", "rating": 5, "text": "Ultimate luxury on the cliffs! World-class amenities with unmatched coastal views. The cliff-side infinity pool is spectacular."},
+        {"user": "CoastalExplorer", "rating": 4, "text": "Great base for coastal exploration! Easy access to hidden beaches and coastal trails. The cliff location provides amazing vantage points."}
+      ]
+    },
+    {
+      "id": "hotel_015",
+      "name": "Prairie Wind Hotel",
+      "address": "654 Grassland Avenue, Dodge City, KS 67801",
+      "coordinates": {"lat": 37.7528, "lng": -100.0171},
+      "tags": {
+        "star_rating": 3,
+        "amenities": ["wifi", "parking", "restaurant"],
+        "price_range": "$$",
+        "prairie": true,
+        "rural": true
+      },
+      "reviews": [
+        {"user": "PrairieExplorer", "rating": 4, "text": "Authentic prairie experience! Endless grasslands stretch to the horizon. The wide open prairie spaces are incredibly peaceful and liberating."},
+        {"user": "StarGazer", "rating": 5, "text": "Incredible prairie night skies! No light pollution means amazing stargazing opportunities. The prairie darkness reveals the Milky Way clearly."},
+        {"user": "WindListener", "rating": 4, "text": "The prairie winds create such a unique atmosphere! Gentle rustling of grasslands is very soothing. Perfect for meditation and reflection."},
+        {"user": "WildlifeObserver", "rating": 4, "text": "Great prairie wildlife viewing! Saw prairie dogs, hawks, and other grassland animals. The prairie ecosystem is fascinating to observe."},
+        {"user": "SunriseChaser", "rating": 5, "text": "Prairie sunrises are spectacular! Unobstructed views of the sun rising over endless grasslands. The prairie light is absolutely magical."},
+        {"user": "HistoryBuff", "rating": 4, "text": "Rich prairie history in the area! Old West heritage and pioneer stories. The hotel provides information about prairie settlement history."},
+        {"user": "QuietSeeker", "rating": 5, "text": "Ultimate peace and quiet on the prairie! The vast open spaces and minimal noise create perfect tranquility. Great for digital detox."},
+        {"user": "NatureWalker", "rating": 4, "text": "Beautiful prairie walking opportunities! Miles of grassland trails and open spaces. The prairie landscape changes with seasons and weather."},
+        {"user": "PhotographyEnthusiast", "rating": 4, "text": "Unique prairie photography opportunities! Storm clouds over grasslands and prairie wildlife. The vast sky dominates every composition."},
+        {"user": "SimpleLife", "rating": 5, "text": "Appreciate the simple prairie lifestyle! Away from city complexity and urban stress. The prairie teaches you to value simplicity and space."}
+      ]
+    }
+  ]
+}
