@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+env/
+venv/
+.idea/
+.vscode/
+.DS_Store
+config.json
+# Add more patterns as needed
