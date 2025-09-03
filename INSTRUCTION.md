@@ -1,40 +1,40 @@
-# 🏨 智能旅游酒店推荐系统
+# 🏨 AI-Powered Hotel Recommendation System
 
-一个基于大语言模型的智能酒店推荐工具，能够分析大量用户评论并根据个人偏好提供个性化推荐。
+An intelligent hotel recommendation tool based on large language models that analyzes numerous user reviews and provides personalized recommendations based on individual preferences.
 
-## ✨ 功能特色
+## ✨ Key Features
 
-### 🎯 个性化推荐
-- **智能需求分析**: 根据用户输入的自然语言需求，智能分析偏好
-- **评论深度挖掘**: 自动分析数百条用户评论，提取关键信息
-- **双重推荐模式**: 提供基础推荐和增强推荐两种模式
+### 🎯 Personalized Recommendations
+- **Intelligent Requirement Analysis**: Analyzes user preferences from natural language input
+- **Deep Review Mining**: Automatically analyzes hundreds of user reviews to extract key information
+- **Dual Recommendation Modes**: Provides both basic and enhanced recommendation modes
 
-### 🔍 信息补全技术
-- **地理位置推理**: 基于酒店地理位置推测相似特征
-- **相似性分析**: 通过相似酒店的特征补全缺失信息
-- **置信度评分**: 为推测信息提供可信度评估
+### 🔍 Information Completion Technology
+- **Geographic Location Inference**: Infers similar features based on hotel locations
+- **Similarity Analysis**: Completes missing information through similar hotel features
+- **Confidence Scoring**: Provides reliability assessment for inferred information
 
-### 🤖 可配置的AI后端
-- **多模型支持**: 默认支持DeepSeek API，可轻松切换其他LLM
-- **智能降级**: API不可用时自动切换到模拟响应模式
-- **灵活配置**: 通过配置文件轻松调整模型参数
+### 🤖 Configurable AI Backend
+- **Multi-Model Support**: Default support for DeepSeek API, easily switchable to other LLMs
+- **Smart Degradation**: Automatically switches to simulation response mode when API is unavailable
+- **Flexible Configuration**: Easily adjust model parameters through configuration file
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
+### Environment Requirements
 - Python 3.8+
-- 网络连接（用于API调用）
+- Network connection (for API calls)
 
-### 安装步骤
+### Installation Steps
 
-1. **安装依赖**
+1. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **配置API密钥**（可选）
+2. **Configure API Key** (Optional)
    
-   编辑 `config.json` 文件，添加您的DeepSeek API密钥：
+   Edit `config.json` file to add your DeepSeek API key:
    ```json
    {
      "llm_provider": "deepseek",
@@ -46,141 +46,141 @@
    }
    ```
    
-   > 💡 **提示**: 如果不配置API密钥，系统将使用内置的模拟响应模式，仍可体验完整功能。
+   > 💡 **Tip**: If API key is not configured, system will use built-in simulation response mode, all features remain fully functional.
 
-3. **启动应用**
+3. **Launch Application**
    ```bash
    streamlit run app.py
    ```
 
-4. **访问应用**
+4. **Access Application**
    
-   在浏览器中打开显示的URL（通常是 `http://localhost:8501`）
+   Open the displayed URL in your browser (usually `http://localhost:8501`)
 
-## 📖 使用指南
+## 📖 User Guide
 
-### 基本使用流程
+### Basic Usage Flow
 
-1. **输入需求**: 在文本框中描述您的酒店偏好
-   - 示例: "我希望住在靠近山的地方，环境要安静，适合放松和徒步旅行"
-   - 示例: "我需要交通便利的酒店，靠近市中心，方便商务活动"
+1. **Input Requirements**: Describe your hotel preferences in the text box
+   - Example: "I want to stay near mountains, in a quiet environment suitable for relaxation and hiking"
+   - Example: "I need a hotel with convenient transportation, close to city center, suitable for business activities"
 
-2. **获取基础推荐**: 点击"🚀 获取基础推荐"按钮
-   - 系统将分析所有酒店评论
-   - 根据您的需求生成初步推荐列表
+2. **Get Basic Recommendations**: Click "🚀 Get Basic Recommendations" button
+   - System will analyze all hotel reviews
+   - Generate initial recommendation list based on your requirements
 
-3. **获取增强推荐**: 点击"⭐ 获取增强推荐"按钮
-   - 系统将补全缺失的酒店信息
-   - 提供更准确的优化推荐列表
-   - 可查看信息补全的详细过程
+3. **Get Enhanced Recommendations**: Click "⭐ Get Enhanced Recommendations" button
+   - System will complete missing hotel information
+   - Provide more accurate optimized recommendation list
+   - View detailed information completion process
 
-### 界面功能说明
+### Interface Features
 
-#### 左侧边栏
-- **系统配置**: 显示当前LLM配置和API状态
-- **数据概览**: 展示酒店和评论数据统计
-- **酒店列表**: 可展开查看所有可用酒店
+#### Left Sidebar
+- **System Configuration**: Shows current LLM configuration and API status
+- **Data Overview**: Displays hotel and review data statistics
+- **Hotel List**: Can expand to view all available hotels
 
-#### 主界面
-- **用户需求输入**: 自由文本输入框和示例需求选择
-- **推荐结果**: 分标签页显示基础推荐和增强推荐
-- **信息补全详情**: 可展开查看AI推理过程
+#### Main Interface
+- **User Requirements Input**: Free text input box and example requirement selection
+- **Recommendations**: Shows basic and enhanced recommendations in tabs
+- **Information Completion Details**: Can expand to view AI reasoning process
 
-## 🏗️ 系统架构
+## 🏗️ System Architecture
 
-### 核心组件
+### Core Components
 
-1. **LLM客户端** (`llm_client.py`)
-   - 支持DeepSeek API集成
-   - 提供模拟响应降级机制
-   - 可扩展支持其他LLM提供商
+1. **LLM Client** (`llm_client.py`)
+   - Supports DeepSeek API integration
+   - Provides simulation response degradation mechanism
+   - Expandable to support other LLM providers
 
-2. **推荐引擎** (`recommendation_engine.py`)
-   - 评论主题提取和分析
-   - 地理位置相似性计算
-   - 信息补全和置信度评估
+2. **Recommendation Engine** (`recommendation_engine.py`)
+   - Review topic extraction and analysis
+   - Geographic location similarity calculation
+   - Information completion and confidence assessment
 
-3. **数据层** (`hotel_data.json`)
-   - 8个模拟酒店数据
-   - 每个酒店包含10条详细评论
-   - 涵盖山景、河景、市中心、海滩等多种场景
+3. **Data Layer** (`hotel_data.json`)
+   - 8 simulated hotel datasets
+   - Each hotel contains 10 detailed reviews
+   - Covers mountain views, river views, city center, beach, and other scenarios
 
-4. **用户界面** (`app.py`)
-   - Streamlit构建的交互式Web界面
-   - 响应式设计，支持多种屏幕尺寸
-   - 实时状态反馈和错误处理
+4. **User Interface** (`app.py`)
+   - Interactive web interface built with Streamlit
+   - Responsive design, supports multiple screen sizes
+   - Real-time status feedback and error handling
 
-### 技术特点
+### Technical Features
 
-- **智能评论分析**: 使用关键词匹配和主题提取技术
-- **相似性算法**: 基于地理位置、星级、价格等多维度计算
-- **置信度机制**: 为推测信息提供可信度评分
-- **容错设计**: API失败时自动降级到本地处理
+- **Intelligent Review Analysis**: Uses keyword matching and topic extraction technology
+- **Similarity Algorithm**: Calculates based on multiple dimensions including geographic location, star rating, price
+- **Confidence Mechanism**: Provides reliability scores for inferred information
+- **Fault Tolerance**: Automatically degrades to local processing when API fails
 
-## ⚙️ 配置选项
+## ⚙️ Configuration Options
 
-### config.json 参数说明
+### config.json Parameter Description
 
-| 参数 | 说明 | 默认值 |
-|------|------|--------|
-| `llm_provider` | LLM提供商 | "deepseek" |
-| `deepseek_api_key` | DeepSeek API密钥 | "YOUR_DEEPSEEK_API_KEY_HERE" |
-| `deepseek_base_url` | API基础URL | "https://api.deepseek.com" |
-| `model_name` | 模型名称 | "deepseek-chat" |
-| `max_tokens` | 最大生成token数 | 2000 |
-| `temperature` | 生成温度 | 0.7 |
+| Parameter | Description | Default Value |
+|-----------|-------------|---------------|
+| `llm_provider` | LLM provider | "deepseek" |
+| `deepseek_api_key` | DeepSeek API key | "YOUR_DEEPSEEK_API_KEY_HERE" |
+| `deepseek_base_url` | API base URL | "https://api.deepseek.com" |
+| `model_name` | Model name | "deepseek-chat" |
+| `max_tokens` | Maximum generated tokens | 2000 |
+| `temperature` | Generation temperature | 0.7 |
 
-## 🔧 开发和扩展
+## 🔧 Development and Extension
 
-### 添加新的酒店数据
-编辑 `hotel_data.json` 文件，按照现有格式添加新酒店：
+### Adding New Hotel Data
+Edit `hotel_data.json` file, add new hotels following existing format:
 ```json
 {
   "id": "hotel_new",
-  "name": "新酒店名称",
-  "address": "酒店地址",
-  "coordinates": {"lat": 纬度, "lng": 经度},
+  "name": "New Hotel Name",
+  "address": "Hotel Address",
+  "coordinates": {"lat": latitude, "lng": longitude},
   "tags": {
-    "star_rating": 星级,
-    "amenities": ["设施列表"],
-    "price_range": "价格区间"
+    "star_rating": rating,
+    "amenities": ["amenity list"],
+    "price_range": "price range"
   },
   "reviews": [
-    {"user": "用户名", "rating": 评分, "text": "评论内容"}
+    {"user": "username", "rating": rating, "text": "review content"}
   ]
 }
 ```
 
-### 集成其他LLM提供商
-修改 `llm_client.py` 中的 `chat_completion` 方法，添加新的API调用逻辑。
+### Integrating Other LLM Providers
+Modify the `chat_completion` method in `llm_client.py` to add new API call logic.
 
-### 自定义推荐算法
-在 `recommendation_engine.py` 中修改相似性计算和特征推理逻辑。
+### Customizing Recommendation Algorithm
+Modify similarity calculation and feature inference logic in `recommendation_engine.py`.
 
-## 🐛 故障排除
+## 🐛 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-**Q: 推荐结果显示为模拟响应？**
-A: 请检查 `config.json` 中的API密钥配置是否正确。
+**Q: Recommendations show as simulation response?**
+A: Check if API key is correctly configured in `config.json`.
 
-**Q: 应用启动失败？**
-A: 确保已安装所有依赖：`pip install -r requirements.txt`
+**Q: Application fails to start?**
+A: Make sure all dependencies are installed: `pip install -r requirements.txt`
 
-**Q: 推荐结果不准确？**
-A: 尝试更详细地描述您的需求，或配置真实的API密钥以获得更好的结果。
+**Q: Recommendations not accurate?**
+A: Try describing your requirements in more detail, or configure a real API key for better results.
 
-**Q: 信息补全详情为空？**
-A: 这在模拟模式下是正常的，配置真实API密钥后会显示详细的推理过程。
+**Q: Information completion details empty?**
+A: This is normal in simulation mode, detailed reasoning process will be shown after configuring real API key.
 
-## 📄 许可证
+## 📄 License
 
-本项目仅供学习和演示使用。
+This project is for learning and demonstration purposes only.
 
-## 🤝 贡献
+## 🤝 Contribution
 
-欢迎提交Issue和Pull Request来改进这个项目！
+Welcome to submit Issues and Pull Requests to improve this project!
 
 ---
 
-**💡 提示**: 为了获得最佳体验，建议配置真实的DeepSeek API密钥。这将启用完整的AI推理功能，提供更准确和个性化的推荐结果。
+**💡 Tip**: For best experience, it's recommended to configure a real DeepSeek API key. This will enable complete AI reasoning functionality and provide more accurate and personalized recommendation results.

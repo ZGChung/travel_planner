@@ -71,185 +71,176 @@ class LLMClient:
 
         # Check if this is an enhanced recommendation request
         if (
-            "补全" in last_message
+            "complete" in last_message.lower()
             or "enhanced" in last_message.lower()
-            or "优化" in last_message
+            or "optimize" in last_message.lower()
         ):
             return self._generate_enhanced_mock_response(last_message)
-        elif "推荐" in last_message or "recommend" in last_message.lower():
+        elif "recommend" in last_message.lower():
             return self._generate_basic_mock_response(last_message)
         else:
-            return "我理解您的需求。请告诉我您更关注酒店的哪些方面，比如位置特色、交通便利性、自然环境等，我会为您提供个性化的推荐。"
+            return "I understand your requirements. Please tell me which aspects of the hotel you care about most, such as location features, transportation convenience, natural environment, etc., and I will provide personalized recommendations."
 
     def _generate_basic_mock_response(self, user_input: str) -> str:
         """Generate basic mock recommendation response."""
         # Analyze user preferences from input
         preferences = self._analyze_user_preferences(user_input)
 
-        if "山" in user_input or "mountain" in user_input.lower():
-            return """基于您的需求分析，我为您推荐以下酒店：
+        if "mountain" in user_input.lower():
+            return """Based on your requirements analysis, I recommend the following hotels:
 
-**推荐列表：**
+**Recommendations:**
 
-1. **Mountain View Resort** (评分: 4.5/5)
-   - 推荐理由: 位于山脚下，提供绝佳的山景视野，适合喜欢自然环境的客人
-   - 特色: 直接通往登山步道，提供山地自行车租赁服务
+1. **Mountain View Resort** (Rating: 4.5/5)
+   - Reason: Located at the foot of mountains, offering excellent mountain views, perfect for nature lovers
+   - Features: Direct access to hiking trails, mountain bike rental service
 
-2. **Countryside Manor** (评分: 4.1/5)
-   - 推荐理由: 乡村环境安静，周围有丘陵地带，适合放松
-   - 特色: 远离城市喧嚣，提供宁静的自然环境
+2. **Countryside Manor** (Rating: 4.1/5)
+   - Reason: Quiet rural environment with surrounding hills, suitable for relaxation
+   - Features: Away from city noise, providing peaceful natural environment
 
-3. **Riverside Inn** (评分: 4.2/5) 
-   - 推荐理由: 河边位置提供宁静的环境，河水声有助于放松
-   - 特色: 直接河流通道，提供钓鱼和皮划艇设备租赁
+3. **Riverside Inn** (Rating: 4.2/5) 
+   - Reason: Riverside location provides quiet environment, river sounds help relaxation
+   - Features: Direct river access, fishing and kayak equipment rental
 
-这些推荐基于评论中提到的位置特色和客人反馈进行分析。"""
+These recommendations are based on location features and guest feedback mentioned in reviews."""
 
-        elif (
-            "交通" in user_input
-            or "business" in user_input.lower()
-            or "商务" in user_input
-        ):
-            return """基于您的需求分析，我为您推荐以下酒店：
+        elif "transportation" in user_input.lower() or "business" in user_input.lower():
+            return """Based on your requirements analysis, I recommend the following hotels:
 
-**推荐列表：**
+**Recommendations:**
 
-1. **Downtown Business Hotel** (评分: 4.3/5)
-   - 推荐理由: 市中心位置，交通便利，适合商务和城市观光
-   - 特色: 步行可达地铁站，周边餐饮和购物选择丰富
+1. **Downtown Business Hotel** (Rating: 4.3/5)
+   - Reason: City center location, convenient transportation, suitable for business and city sightseeing
+   - Features: Walking distance to metro station, rich dining and shopping options nearby
 
-2. **Airport Express Hotel** (评分: 4.0/5)
-   - 推荐理由: 靠近机场，班车服务便利，适合商务出行
-   - 特色: 24小时班车服务，商务设施完善
+2. **Airport Express Hotel** (Rating: 4.0/5)
+   - Reason: Close to airport, convenient shuttle service, suitable for business travel
+   - Features: 24-hour shuttle service, comprehensive business facilities
 
-3. **Historic Town Square Inn** (评分: 4.2/5)
-   - 推荐理由: 位于历史城区中心，交通便利且有文化特色
-   - 特色: 步行可达多个历史景点和商业区
+3. **Historic Town Square Inn** (Rating: 4.2/5)
+   - Reason: Located in historic district center, convenient transportation with cultural character
+   - Features: Walking distance to multiple historic sites and business districts
 
-这些推荐基于评论中提到的交通便利性和商务设施进行分析。"""
+These recommendations are based on transportation convenience and business facilities mentioned in reviews."""
 
         else:
-            return """基于您的需求分析，我为您推荐以下酒店：
+            return """Based on your requirements analysis, I recommend the following hotels:
 
-**推荐列表：**
+**Recommendations:**
 
-1. **Beachfront Paradise Resort** (评分: 4.6/5)
-   - 推荐理由: 海滨位置，环境优美，适合度假放松
-   - 特色: 直接海滩通道，水上运动设施齐全
+1. **Beachfront Paradise Resort** (Rating: 4.6/5)
+   - Reason: Beachfront location, beautiful environment, perfect for vacation relaxation
+   - Features: Direct beach access, complete water sports facilities
 
-2. **Lakeside Lodge** (评分: 4.3/5)
-   - 推荐理由: 湖边环境宁静，适合家庭度假
-   - 特色: 湖景房间，提供船只租赁服务
+2. **Lakeside Lodge** (Rating: 4.3/5)
+   - Reason: Lakeside environment is quiet, suitable for family vacation
+   - Features: Lake view rooms, boat rental service
 
-3. **Mountain View Resort** (评分: 4.5/5)
-   - 推荐理由: 山景优美，空气清新，适合自然爱好者
-   - 特色: 登山步道，户外活动丰富
+3. **Mountain View Resort** (Rating: 4.5/5)
+   - Reason: Beautiful mountain views, fresh air, suitable for nature enthusiasts
+   - Features: Hiking trails, rich outdoor activities
 
-这些推荐基于评论中提到的环境特色和客人反馈进行分析。"""
+These recommendations are based on environmental features and guest feedback mentioned in reviews."""
 
     def _generate_enhanced_mock_response(self, user_input: str) -> str:
         """Generate enhanced mock recommendation response with information completion."""
         # Analyze user preferences
-        if "山" in user_input or "mountain" in user_input.lower():
-            return """**🔍 信息补全分析结果：**
+        if "mountain" in user_input.lower():
+            return """**🔍 Information Completion Analysis Results:**
 
-基于地理位置和相似酒店的信息，我对缺失信息进行了推测：
+Based on geographic location and similar hotel information, I have inferred missing information:
 
-**📊 补全信息：**
-- **Countryside Manor**: 推测靠近山区 (置信度: 72%) - 基于地理位置相似性
-- **Historic Town Square Inn**: 推测周边有山景 (置信度: 58%) - 基于相似酒店特征
-- **Lakeside Lodge**: 推测湖泊周围有山丘 (置信度: 67%) - 基于地形分析
+**📊 Completed Information:**
+- **Countryside Manor**: Inferred near mountain area (Confidence: 72%) - Based on geographic location similarity
+- **Historic Town Square Inn**: Inferred mountain views nearby (Confidence: 58%) - Based on similar hotel features
+- **Lakeside Lodge**: Inferred hills around lake (Confidence: 67%) - Based on terrain analysis
 
-**⭐ 更新后的推荐：**
+**⭐ Updated Recommendations:**
 
-1. **Mountain View Resort** (评分: 4.5/5) 
-   - 推荐理由: 位于山脚下，提供绝佳的山景视野 ✅ *信息完整*
-   - 特色: 直接通往登山步道，提供山地自行车租赁服务
+1. **Mountain View Resort** (Rating: 4.5/5) 
+   - Reason: Located at mountain foot, offering excellent mountain views ✅ *Complete Information*
+   - Features: Direct access to hiking trails, mountain bike rental service
 
-2. **🆕 Lakeside Lodge** (评分: 4.4/5) *排名上升*
-   - 推荐理由: 湖泊周围可能有山丘环绕 🔍 *基于补全信息 (67% 置信度)*
-   - 特色: 潜在的湖景+山景双重体验，适合多样化户外活动
+2. **🆕 Lakeside Lodge** (Rating: 4.4/5) *Ranking Improved*
+   - Reason: Lake possibly surrounded by hills 🔍 *Based on completed information (67% confidence)*
+   - Features: Potential lake + mountain view dual experience, suitable for diverse outdoor activities
 
-3. **🆕 Countryside Manor** (评分: 4.3/5) *新增推荐*
-   - 推荐理由: 可能位于乡村山区环境 🔍 *基于补全信息 (72% 置信度)*
-   - 特色: 推测远离城市，可能有纯净山区空气
+3. **🆕 Countryside Manor** (Rating: 4.3/5) *New Recommendation*
+   - Reason: Possibly located in rural mountain area 🔍 *Based on completed information (72% confidence)*
+   - Features: Inferred away from city, possibly pure mountain air
 
-**📈 推荐变化说明：**
-- 新增了2个基于信息补全的酒店推荐（置信度均低于75%）
-- 重新排序了推荐优先级，考虑了信息不确定性
-- 补全信息提供了更多可能性，但需要实际验证"""
+**📈 Recommendation Changes Explained:**
+- Added 2 hotels based on information completion (confidence below 75%)
+- Reordered recommendation priority, considering information uncertainty
+- Completed information provides more possibilities, but needs actual verification"""
 
-        elif (
-            "交通" in user_input
-            or "business" in user_input.lower()
-            or "商务" in user_input
-        ):
-            return """**🔍 信息补全分析结果：**
+        elif "transportation" in user_input.lower() or "business" in user_input.lower():
+            return """**🔍 Information Completion Analysis Results:**
 
-基于地理位置和相似酒店的信息，我对缺失信息进行了推测：
+Based on geographic location and similar hotel information, I have inferred missing information:
 
-**📊 补全信息：**
-- **Historic Town Square Inn**: 推测交通便利性较高 (置信度: 63%) - 基于城区位置
-- **Beachfront Paradise Resort**: 推测可能有机场班车 (置信度: 45%) - 基于度假村标准
-- **Lakeside Lodge**: 推测交通可能不便 (置信度: 78%) - 基于偏远位置
+**📊 Completed Information:**
+- **Historic Town Square Inn**: Inferred high transportation convenience (Confidence: 63%) - Based on urban location
+- **Beachfront Paradise Resort**: Inferred possible airport shuttle (Confidence: 45%) - Based on resort standards
+- **Lakeside Lodge**: Inferred possibly inconvenient transportation (Confidence: 78%) - Based on remote location
 
-**⭐ 更新后的推荐：**
+**⭐ Updated Recommendations:**
 
-1. **Downtown Business Hotel** (评分: 4.3/5)
-   - 推荐理由: 市中心位置，交通便利 ✅ *信息完整*
-   - 特色: 步行可达地铁站，周边餐饮和购物选择丰富
+1. **Downtown Business Hotel** (Rating: 4.3/5)
+   - Reason: City center location, convenient transportation ✅ *Complete Information*
+   - Features: Walking distance to metro station, rich dining and shopping options nearby
 
-2. **🆕 Historic Town Square Inn** (评分: 4.4/5) *排名上升*
-   - 推荐理由: 历史城区中心，可能交通便利且有文化特色 🔍 *基于补全信息 (63% 置信度)*
-   - 特色: 推测步行可达多个交通枢纽和商业区
+2. **🆕 Historic Town Square Inn** (Rating: 4.4/5) *Ranking Improved*
+   - Reason: Historic district center, possibly convenient transportation with cultural character 🔍 *Based on completed information (63% confidence)*
+   - Features: Inferred walking distance to multiple transportation hubs and business districts
 
-3. **Airport Express Hotel** (评分: 4.0/5)
-   - 推荐理由: 机场附近，班车服务便利 ✅ *信息完整*
-   - 特色: 24小时班车服务，商务设施完善
+3. **Airport Express Hotel** (Rating: 4.0/5)
+   - Reason: Near airport, convenient shuttle service ✅ *Complete Information*
+   - Features: 24-hour shuttle service, comprehensive business facilities
 
-**📈 推荐变化说明：**
-- Historic Town Square Inn 基于推测的交通信息排名提升（置信度63%）
-- 过滤掉了交通可能不便的偏远酒店（置信度78%）
-- 补全信息提供了更多参考，但需要实际验证准确性"""
+**📈 Recommendation Changes Explained:**
+- Historic Town Square Inn ranking improved based on inferred transportation information (63% confidence)
+- Filtered out hotels with potentially inconvenient transportation (78% confidence)
+- Completed information provides more reference, but accuracy needs actual verification"""
 
         else:
-            return """**🔍 信息补全分析结果：**
+            return """**🔍 Information Completion Analysis Results:**
 
-基于地理位置和相似酒店的信息，我对缺失信息进行了推测：
+Based on geographic location and similar hotel information, I have inferred missing information:
 
-**📊 补全信息：**
-- **Mountain View Resort**: 推测可能提供SPA服务 (置信度: 52%) - 基于度假村特征
-- **Historic Town Square Inn**: 推测可能有文化活动 (置信度: 68%) - 基于历史位置
-- **Countryside Manor**: 推测可能有有机餐厅 (置信度: 47%) - 基于乡村特色
+**📊 Completed Information:**
+- **Mountain View Resort**: Inferred possible SPA service (Confidence: 52%) - Based on resort features
+- **Historic Town Square Inn**: Inferred possible cultural activities (Confidence: 68%) - Based on historic location
+- **Countryside Manor**: Inferred possible organic restaurant (Confidence: 47%) - Based on rural character
 
-**⭐ 更新后的推荐：**
+**⭐ Updated Recommendations:**
 
-1. **🆕 Historic Town Square Inn** (评分: 4.5/5) *排名上升*
-   - 推荐理由: 历史文化氛围浓厚，可能有定期文化活动 🔍 *基于补全信息 (68% 置信度)*
-   - 特色: 历史建筑+潜在文化体验，独特的住宿可能性
+1. **🆕 Historic Town Square Inn** (Rating: 4.5/5) *Ranking Improved*
+   - Reason: Rich historical cultural atmosphere, possibly regular cultural activities 🔍 *Based on completed information (68% confidence)*
+   - Features: Historic building + potential cultural experience, unique accommodation possibility
 
-2. **Beachfront Paradise Resort** (评分: 4.6/5)
-   - 推荐理由: 海滨位置，环境优美 ✅ *信息完整*
-   - 特色: 直接海滩通道，水上运动设施齐全
+2. **Beachfront Paradise Resort** (Rating: 4.6/5)
+   - Reason: Beachfront location, beautiful environment ✅ *Complete Information*
+   - Features: Direct beach access, complete water sports facilities
 
-3. **🆕 Mountain View Resort** (评分: 4.6/5) *服务升级*
-   - 推荐理由: 山景优美+可能提供SPA服务 🔍 *基于补全信息 (52% 置信度)*
-   - 特色: 登山步道+潜在SPA中心，可能的身心放松体验
+3. **🆕 Mountain View Resort** (Rating: 4.6/5) *Service Upgrade*
+   - Reason: Beautiful mountain views + possible SPA service 🔍 *Based on completed information (52% confidence)*
+   - Features: Hiking trails + potential SPA center, possible physical and mental relaxation experience
 
-**📈 推荐变化说明：**
-- 基于推测信息重新评估了酒店服务质量（置信度均低于70%）
-- Historic Town Square Inn 因潜在文化特色排名提升
-- 补全信息提供了服务升级的可能性，但需要实际确认"""
+**📈 Recommendation Changes Explained:**
+- Re-evaluated hotel service quality based on inferred information (all confidence below 70%)
+- Historic Town Square Inn ranking improved due to potential cultural features
+- Completed information provides service upgrade possibilities, but needs actual confirmation"""
 
     def _analyze_user_preferences(self, user_input: str) -> dict:
         """Analyze user preferences from input text."""
         preferences = {
-            "mountain": "山" in user_input or "mountain" in user_input.lower(),
-            "business": "交通" in user_input
-            or "business" in user_input.lower()
-            or "商务" in user_input,
-            "quiet": "安静" in user_input or "quiet" in user_input.lower(),
-            "beach": "海" in user_input or "beach" in user_input.lower(),
-            "culture": "文化" in user_input or "culture" in user_input.lower(),
+            "mountain": "mountain" in user_input.lower(),
+            "business": "transportation" in user_input.lower()
+            or "business" in user_input.lower(),
+            "quiet": "quiet" in user_input.lower(),
+            "beach": "beach" in user_input.lower(),
+            "culture": "culture" in user_input.lower(),
         }
         return preferences

@@ -1,65 +1,65 @@
-# 🏨 智能旅游酒店推荐系统
+# 🏨 AI-Powered Hotel Recommendation System
 
-一个基于AI的智能酒店推荐工具，通过分析用户评论和个人偏好，为您提供个性化的酒店推荐。
+An AI-based smart hotel recommendation tool that provides personalized hotel suggestions by analyzing user reviews and personal preferences.
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. 启动应用
+### 2. Launch Application
 ```bash
 streamlit run app.py
 ```
 
-### 3. 访问应用
-在浏览器中打开 `http://localhost:8501`
+### 3. Access Application
+Open `http://localhost:8501` in your browser
 
-## 📖 使用指南
+## 📖 User Guide
 
-### 🎯 获取酒店推荐
+### 🎯 Get Hotel Recommendations
 
-1. **输入您的需求**
-   - 在"用户需求输入"区域描述您的酒店偏好
-   - 例如："我希望住在靠近山的地方，环境要安静，适合放松"
-   - 或选择预设的示例需求
+1. **Enter Your Requirements**
+   - Describe your hotel preferences in the "User Requirements Input" area
+   - For example: "I want to stay near mountains, in a quiet environment suitable for relaxation"
+   - Or choose from preset example requirements
 
-2. **获取基础推荐**
-   - 点击"🚀 获取基础推荐"按钮
-   - 系统将分析所有酒店评论，生成初步推荐
+2. **Get Basic Recommendations**
+   - Click the "🚀 Get Basic Recommendations" button
+   - System will analyze all hotel reviews and generate initial recommendations
 
-3. **获取增强推荐**（可选）
-   - 点击"⭐ 获取增强推荐"按钮
-   - 系统将补全缺失信息，提供更精准的推荐
-   - 可查看详细的信息补全过程
+3. **Get Enhanced Recommendations** (Optional)
+   - Click the "⭐ Get Enhanced Recommendations" button
+   - System will complete missing information and provide more accurate recommendations
+   - View detailed information completion process
 
-### 🏨 查看酒店详情
+### 🏨 View Hotel Details
 
-- **浏览酒店列表**：在左侧边栏展开"查看所有酒店"
-- **点击酒店名称**：查看详细信息，包括：
-  - 📍 基本信息（地址、坐标）
-  - 🏷️ 酒店标签（星级、价格、设施）
-  - 📊 评论统计（平均评分、评分分布）
-  - 💬 用户评论（支持评分筛选和排序）
+- **Browse Hotel List**: Expand "View All Hotels" in the left sidebar
+- **Click Hotel Name**: View detailed information, including:
+  - 📍 Basic Information (address, coordinates)
+  - 🏷️ Hotel Tags (star rating, price, amenities)
+  - 📊 Review Statistics (average rating, rating distribution)
+  - 💬 User Reviews (supports rating filtering and sorting)
 
-### 🔍 推荐结果对比
+### 🔍 Compare Recommendations
 
-系统提供两种推荐模式：
+System provides two recommendation modes:
 
-- **📋 基础推荐**：基于评论分析的初步推荐
-- **⭐ 增强推荐**：包含信息补全的优化推荐
-  - 🆕 新增推荐酒店
-  - ✅ 信息完整的酒店
-  - 🔍 基于补全信息的推荐
-  - 显示置信度评分和变化说明
+- **📋 Basic Recommendations**: Initial recommendations based on review analysis
+- **⭐ Enhanced Recommendations**: Optimized recommendations with information completion
+  - 🆕 New recommended hotels
+  - ✅ Hotels with complete information
+  - 🔍 Recommendations based on completed information
+  - Shows confidence scores and change explanations
 
-## ⚙️ 配置选项
+## ⚙️ Configuration Options
 
-### API配置（可选）
+### API Configuration (Optional)
 
-编辑 `config.json` 文件配置DeepSeek API：
+Edit `config.json` file to configure DeepSeek API:
 
 ```json
 {
@@ -72,59 +72,59 @@ streamlit run app.py
 }
 ```
 
-> 💡 **提示**：不配置API密钥时，系统使用模拟响应模式，功能完全可用。
+> 💡 **Tip**: System uses simulation response mode when API key is not configured, all features remain fully functional.
 
-## ✨ 主要功能
+## ✨ Key Features
 
-### 🎯 智能推荐
-- 自然语言需求分析
-- 基于评论的深度挖掘
-- 双重推荐模式（基础+增强）
+### 🎯 Smart Recommendations
+- Natural language requirement analysis
+- Deep review mining
+- Dual recommendation modes (Basic + Enhanced)
 
-### 🔍 信息补全
-- 地理位置推理
-- 相似性分析
-- 置信度评估（真实反映推测信息的不确定性）
+### 🔍 Information Completion
+- Geographic location inference
+- Similarity analysis
+- Confidence assessment (realistically reflects uncertainty in inferred information)
 
-### 🏨 酒店详情
-- 15个精选酒店数据
-- 150条真实用户评论
-- 多维度酒店信息展示
+### 🏨 Hotel Details
+- 15 curated hotel datasets
+- 150 authentic user reviews
+- Multi-dimensional hotel information display
 
-### 🎨 用户界面
-- 响应式设计
-- 直观的操作流程
-- 实时状态反馈
+### 🎨 User Interface
+- Responsive design
+- Intuitive operation flow
+- Real-time status feedback
 
-## 🏗️ 系统特点
+## 🏗️ System Features
 
-- **智能分析**：AI驱动的评论分析和需求匹配
-- **可视化对比**：清晰展示推荐变化和改进
-- **交互体验**：点击式酒店详情浏览
-- **灵活配置**：支持多种LLM后端
-- **容错设计**：API不可用时自动降级
+- **Intelligent Analysis**: AI-driven review analysis and requirement matching
+- **Visual Comparison**: Clear display of recommendation changes and improvements
+- **Interactive Experience**: Click-based hotel detail browsing
+- **Flexible Configuration**: Supports multiple LLM backends
+- **Fault Tolerance**: Automatic degradation when API is unavailable
 
-## 🔧 故障排除
+## 🔧 Troubleshooting
 
-**应用无法启动？**
+**Application won't start?**
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-**推荐结果不理想？**
-- 尝试更详细地描述需求
-- 使用示例需求作为参考
-- 配置真实API密钥获得更好效果
+**Recommendations not ideal?**
+- Try describing requirements in more detail
+- Use example requirements as reference
+- Configure real API key for better results
 
-**酒店详情页面空白？**
-- 确保点击了侧边栏中的酒店名称
-- 使用"🔙 返回主页"按钮返回主界面
+**Hotel detail page blank?**
+- Make sure you clicked a hotel name in the sidebar
+- Use "🔙 Return to Home" button to go back to main interface
 
-## 📚 更多信息
+## 📚 More Information
 
-详细的技术文档和开发指南请参考 `INSTRUCTION.md` 文件。
+For detailed technical documentation and development guide, please refer to `INSTRUCTION.md` file.
 
 ---
 
-🎉 **开始体验智能酒店推荐吧！** 输入您的需求，发现最适合的酒店。
+🎉 **Start experiencing smart hotel recommendations!** Enter your requirements to discover the most suitable hotels.

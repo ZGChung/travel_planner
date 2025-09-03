@@ -4,7 +4,7 @@ from recommendation_engine import RecommendationEngine
 
 # Page configuration
 st.set_page_config(
-    page_title="智能旅游酒店推荐系统",
+    page_title="AI Hotel Recommendation System",
     page_icon="🏨",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -32,57 +32,57 @@ if "show_hotel_detail" not in st.session_state:
     st.session_state.show_hotel_detail = False
 
 # Main title
-st.title("🏨 智能旅游酒店推荐系统")
+st.title("🏨 AI Hotel Recommendation System")
 st.markdown("---")
 
 # Sidebar for configuration
 with st.sidebar:
-    st.header("⚙️ 系统配置")
+    st.header("⚙️ System Configuration")
 
     # Display current configuration
     try:
         with open("config.json", "r", encoding="utf-8") as f:
             config = json.load(f)
 
-        st.subheader("当前配置")
-        st.write(f"**LLM提供商**: {config.get('llm_provider', 'deepseek')}")
-        st.write(f"**模型**: {config.get('model_name', 'deepseek-chat')}")
+        st.subheader("Current Configuration")
+        st.write(f"**LLM Provider**: {config.get('llm_provider', 'deepseek')}")
+        st.write(f"**Model**: {config.get('model_name', 'deepseek-chat')}")
 
         api_key = config.get("deepseek_api_key", "")
         if api_key == "YOUR_DEEPSEEK_API_KEY_HERE":
-            st.warning("⚠️ 请在config.json中配置您的API密钥")
-            st.info("💡 当前使用模拟响应模式")
+            st.warning("⚠️ Please configure your API key in config.json")
+            st.info("💡 Currently using simulation response mode")
         else:
-            st.success("✅ API密钥已配置")
+            st.success("✅ API key configured")
 
     except Exception as e:
-        st.error(f"配置文件读取错误: {str(e)}")
+        st.error(f"Configuration file read error: {str(e)}")
 
     st.markdown("---")
 
     # Hotel data summary
-    st.subheader("📊 数据概览")
+    st.subheader("📊 Data Overview")
     hotels = st.session_state.recommendation_engine.hotels
-    st.write(f"**酒店数量**: {len(hotels)}")
+    st.write(f"**Number of Hotels**: {len(hotels)}")
 
     total_reviews = sum(len(hotel.get("reviews", [])) for hotel in hotels)
-    st.write(f"**评论总数**: {total_reviews}")
+    st.write(f"**Total Reviews**: {total_reviews}")
 
     # Show hotel list with clickable names
-    with st.expander("查看所有酒店"):
+    with st.expander("View All Hotels"):
         for hotel in hotels:
             col1, col2 = st.columns([3, 1])
             with col1:
                 if st.button(
                     f"📍 {hotel['name']}",
                     key=f"hotel_{hotel['id']}",
-                    help="点击查看详情",
+                    help="Click to view details",
                 ):
                     st.session_state.selected_hotel = hotel["id"]
                     st.session_state.show_hotel_detail = True
                     st.rerun()
             with col2:
-                st.write(f"({len(hotel.get('reviews', []))} 条评论)")
+                st.write(f"({len(hotel.get('reviews', []))} reviews)")
 
 # Check if hotel detail should be shown
 if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
@@ -99,7 +99,7 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
         with col1:
             st.header(f"🏨 {selected_hotel_data['name']}")
         with col2:
-            if st.button("🔙 返回主页", type="secondary"):
+            if st.button("🔙 Return to Home", type="secondary"):
                 st.session_state.show_hotel_detail = False
                 st.session_state.selected_hotel = None
                 st.rerun()
@@ -110,25 +110,25 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
         col1, col2 = st.columns([2, 1])
 
         with col1:
-            st.subheader("📍 基本信息")
-            st.write(f"**地址**: {selected_hotel_data['address']}")
+            st.subheader("📍 Basic Information")
+            st.write(f"**Address**: {selected_hotel_data['address']}")
             st.write(
-                f"**坐标**: {selected_hotel_data['coordinates']['lat']}, {selected_hotel_data['coordinates']['lng']}"
+                f"**Coordinates**: {selected_hotel_data['coordinates']['lat']}, {selected_hotel_data['coordinates']['lng']}"
             )
 
             # Tags information
             tags = selected_hotel_data.get("tags", {})
-            st.subheader("🏷️ 酒店标签")
+            st.subheader("🏷️ Hotel Tags")
 
             col_tag1, col_tag2 = st.columns(2)
             with col_tag1:
-                st.write(f"⭐ **星级**: {tags.get('star_rating', 'N/A')}")
-                st.write(f"💰 **价格区间**: {tags.get('price_range', 'N/A')}")
+                st.write(f"⭐ **Star Rating**: {tags.get('star_rating', 'N/A')}")
+                st.write(f"💰 **Price Range**: {tags.get('price_range', 'N/A')}")
 
             with col_tag2:
                 amenities = tags.get("amenities", [])
                 if amenities:
-                    st.write("🎯 **设施服务**:")
+                    st.write("🎯 **Amenities & Services**:")
                     for amenity in amenities:
                         st.write(f"  • {amenity}")
 
@@ -142,7 +142,7 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
                     special_features.append(key)
 
             if special_features:
-                st.write("✨ **特色标签**:")
+                st.write("✨ **Special Features**:")
                 for feature in special_features:
                     st.write(f"  • {feature}")
 
@@ -150,9 +150,11 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
             # Review statistics
             reviews = selected_hotel_data.get("reviews", [])
             if reviews:
-                st.subheader("📊 评论统计")
+                st.subheader("📊 Review Statistics")
                 avg_rating = sum(r["rating"] for r in reviews) / len(reviews)
-                st.metric("平均评分", f"{avg_rating:.1f}/5", f"{len(reviews)} 条评论")
+                st.metric(
+                    "Average Rating", f"{avg_rating:.1f}/5", f"{len(reviews)} reviews"
+                )
 
                 # Rating distribution
                 rating_counts = {}
@@ -160,40 +162,49 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
                     rating = r["rating"]
                     rating_counts[rating] = rating_counts.get(rating, 0) + 1
 
-                st.write("**评分分布**:")
+                st.write("**Rating Distribution**:")
                 for rating in sorted(rating_counts.keys(), reverse=True):
                     count = rating_counts[rating]
                     percentage = (count / len(reviews)) * 100
-                    st.write(f"{rating}⭐: {count} 条 ({percentage:.1f}%)")
+                    st.write(f"{rating}⭐: {count} reviews ({percentage:.1f}%)")
 
         st.markdown("---")
 
         # Reviews section
-        st.subheader("💬 用户评论")
+        st.subheader("💬 User Reviews")
 
         if reviews:
             # Review filter
             col1, col2 = st.columns([2, 1])
             with col1:
                 rating_filter = st.selectbox(
-                    "筛选评分",
-                    ["全部评分", "5星", "4星", "3星", "2星", "1星"],
+                    "Filter by Rating",
+                    [
+                        "All Ratings",
+                        "5 Stars",
+                        "4 Stars",
+                        "3 Stars",
+                        "2 Stars",
+                        "1 Star",
+                    ],
                     key="rating_filter",
                 )
             with col2:
                 sort_order = st.selectbox(
-                    "排序方式", ["评分从高到低", "评分从低到高"], key="sort_order"
+                    "Sort By",
+                    ["Highest to Lowest", "Lowest to Highest"],
+                    key="sort_order",
                 )
 
             # Filter and sort reviews
             filtered_reviews = reviews.copy()
-            if rating_filter != "全部评分":
+            if rating_filter != "All Ratings":
                 target_rating = int(rating_filter[0])
                 filtered_reviews = [
                     r for r in filtered_reviews if r["rating"] == target_rating
                 ]
 
-            if sort_order == "评分从高到低":
+            if sort_order == "Highest to Lowest":
                 filtered_reviews.sort(key=lambda x: x["rating"], reverse=True)
             else:
                 filtered_reviews.sort(key=lambda x: x["rating"])
@@ -212,11 +223,11 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
                     if i < len(filtered_reviews) - 1:
                         st.markdown("---")
         else:
-            st.info("暂无用户评论")
+            st.info("No user reviews yet")
 
     else:
-        st.error("未找到选中的酒店信息")
-        if st.button("返回主页"):
+        st.error("Selected hotel information not found")
+        if st.button("Return to Home"):
             st.session_state.show_hotel_detail = False
             st.session_state.selected_hotel = None
             st.rerun()
@@ -224,12 +235,12 @@ if st.session_state.show_hotel_detail and st.session_state.selected_hotel:
 else:
     # Main content area (original layout)
 
-    st.header("🎯 用户需求输入")
+    st.header("🎯 User Requirements Input")
 
     # User preferences input
     user_preferences = st.text_area(
-        "请描述您的酒店偏好和需求：",
-        placeholder="例如：我希望住在靠近山的地方，环境要安静，适合放松。或者：我需要交通便利的酒店，方便商务出行...",
+        "Please describe your hotel preferences and requirements:",
+        placeholder="Example: I want to stay near mountains, in a quiet environment suitable for relaxation. Or: I need a hotel with convenient transportation for business travel...",
         height=150,
         value=st.session_state.user_preferences,
     )
@@ -238,50 +249,62 @@ else:
     st.session_state.user_preferences = user_preferences
 
     # Example preferences
-    st.subheader("💡 示例需求")
+    st.subheader("💡 Example Requirements")
     example_preferences = [
-        "我喜欢靠近山的酒店，环境要安静，适合徒步和放松",
-        "我需要交通便利的酒店，靠近市中心，方便商务活动",
-        "我想要海边度假酒店，有沙滩和水上运动设施",
-        "我偏爱有历史文化特色的酒店，环境要有古典氛围",
-        "我需要靠近机场的酒店，有班车服务，适合转机",
+        "I like hotels near mountains, with quiet environment, suitable for hiking and relaxation",
+        "I need a hotel with convenient transportation, close to city center, suitable for business activities",
+        "I want a beachfront resort with beach access and water sports facilities",
+        "I prefer hotels with historical and cultural character, with classical atmosphere",
+        "I need a hotel near the airport with shuttle service, suitable for layovers",
     ]
 
-    selected_example = st.selectbox("选择示例需求（可选）：", example_preferences)
+    selected_example = st.selectbox(
+        "Select Example Requirements (Optional):", example_preferences
+    )
 
-    if selected_example and st.button("使用示例需求"):
+    if selected_example and st.button("Use Example Requirements"):
         st.session_state.user_preferences = selected_example
         st.rerun()
 
-    st.header("🔍 推荐结果")
+    st.header("🔍 Recommendations")
 
     # First recommendation button
-    if st.button("🚀 获取基础推荐", type="primary", use_container_width=True):
+    if st.button(
+        "🚀 Get Basic Recommendations", type="primary", use_container_width=True
+    ):
         if not user_preferences.strip():
-            st.error("请先输入您的需求偏好！")
+            st.error("Please enter your preferences first!")
         else:
-            with st.spinner("正在分析您的需求并生成推荐..."):
+            with st.spinner(
+                "Analyzing your requirements and generating recommendations..."
+            ):
                 try:
                     basic_rec = st.session_state.recommendation_engine.get_basic_recommendations(
                         user_preferences
                     )
                     st.session_state.basic_recommendations = basic_rec
-                    st.success("基础推荐已生成！")
+                    st.success("Basic recommendations generated!")
                 except Exception as e:
-                    st.error(f"生成推荐时出错: {str(e)}")
+                    st.error(f"Error generating recommendations: {str(e)}")
 
     # Second recommendation button (only show if basic recommendations exist)
     if st.session_state.basic_recommendations:
-        if st.button("⭐ 获取增强推荐", type="secondary", use_container_width=True):
-            with st.spinner("正在补全酒店信息并优化推荐..."):
+        if st.button(
+            "⭐ Get Enhanced Recommendations",
+            type="secondary",
+            use_container_width=True,
+        ):
+            with st.spinner(
+                "Completing hotel information and optimizing recommendations..."
+            ):
                 try:
                     enhanced_rec = st.session_state.recommendation_engine.get_enhanced_recommendations(
                         user_preferences, st.session_state.basic_recommendations
                     )
                     st.session_state.enhanced_recommendations = enhanced_rec
-                    st.success("增强推荐已生成！")
+                    st.success("Enhanced recommendations generated!")
                 except Exception as e:
-                    st.error(f"生成增强推荐时出错: {str(e)}")
+                    st.error(f"Error generating enhanced recommendations: {str(e)}")
 
     # Display recommendations
     st.markdown("---")
@@ -295,24 +318,24 @@ else:
         tab_names = []
 
         if st.session_state.basic_recommendations:
-            tab_names.append("📋 基础推荐")
+            tab_names.append("📋 Basic Recommendations")
 
         if st.session_state.enhanced_recommendations:
-            tab_names.append("⭐ 增强推荐")
+            tab_names.append("⭐ Enhanced Recommendations")
 
         if len(tab_names) > 1:
             col1, col2 = st.columns(2)
 
             with col1:
-                st.markdown("### 基于评论分析的基础推荐")
+                st.markdown("### Review-Based Basic Recommendations")
                 st.markdown(st.session_state.basic_recommendations)
 
             with col2:
-                st.markdown("### 基于信息补全的增强推荐")
+                st.markdown("### Information-Enhanced Recommendations")
                 st.markdown(st.session_state.enhanced_recommendations)
 
         elif st.session_state.basic_recommendations:
-            st.markdown("### 📋 基础推荐结果")
+            st.markdown("### 📋 Basic Recommendation Results")
             st.markdown(st.session_state.basic_recommendations)
 
     # Footer
@@ -320,8 +343,8 @@ else:
     st.markdown(
         """
     <div style='text-align: center; color: #666;'>
-        <p>🏨 智能旅游酒店推荐系统 | 基于大语言模型的个性化推荐</p>
-        <p>💡 提示：配置您的DeepSeek API密钥以获得更准确的推荐结果</p>
+        <p>🏨 AI Hotel Recommendation System | Personalized Recommendations Powered by Large Language Models</p>
+        <p>💡 Tip: Configure your DeepSeek API key for more accurate recommendation results</p>
     </div>
     """,
         unsafe_allow_html=True,
@@ -332,7 +355,7 @@ else:
         st.session_state.basic_recommendations
         or st.session_state.enhanced_recommendations
     ):
-        if st.button("🗑️ 清除所有推荐结果"):
+        if st.button("🗑️ Clear All Recommendations"):
             st.session_state.basic_recommendations = None
             st.session_state.enhanced_recommendations = None
             st.rerun()
